@@ -82,6 +82,4 @@ class AttributeController extends BaseController
         }
         return $this->responseRedirect('admin.attributes.index', 'Attribute deleted successfully' ,'success',false, false);
     }
-
-
 }
