@@ -1,21 +1,16 @@
 <?php
-
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Model;
-
 class ProductAttribute extends Model
 {
     /**
      * @var string
      */
     protected $table = 'product_attributes';
-
     /**
      * @var array
      */
-    protected $fillable = ['product_id', 'quantity', 'price'];
-
+    protected $fillable = ['attribute_id', 'product_id', 'value', 'quantity', 'price'];
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -23,12 +18,11 @@ class ProductAttribute extends Model
     {
         return $this->belongsTo(Product::class);
     }
-
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function attributesValues()
+    public function attribute()
     {
-        return $this->belongsToMany(AttributeValue::class);
+        return $this->belongsTo(Attribute::class);
     }
 }
