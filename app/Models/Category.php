@@ -2,11 +2,20 @@
 
 namespace App\Models;
 
+use TypiCMS\NestableTrait;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+    use NestableTrait;
+    /**
+     * @var string
+     */
     protected $table = 'categories';
+    /**
+     * @var array
+     */
     protected $fillable = [
         'name', 'slug', 'description', 'parent_id', 'featured', 'menu', 'image'
     ];
